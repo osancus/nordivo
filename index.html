@@ -1,273 +1,917 @@
 <!DOCTYPE html>
-<html class="app" lang="en">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Nordivo - Enabling A Decentralised Future</title>
+  <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-    <title>Nordivo</title>
+  <!-- Core Style Sheets -->
+  <link rel="stylesheet" href="assets/css/master.css">
+  <!-- Responsive Style Sheets -->
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <!-- Revolution Style Sheets -->
+  <link rel="stylesheet" type="text/css" href="revolution/css/settings.css">
+  <link rel="stylesheet" type="text/css" href="revolution/css/layers.css">
+  <link rel="stylesheet" type="text/css" href="revolution/css/navigation.css">
 
-    <!-- Behavioral Meta Data -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script>
+    window.onload = function () {
+      let date = new Date().getFullYear();
+      document.querySelector("#year").innerHTML = date;
+    };
+  </script>
 
-    <!-- Core Meta Data -->
-    <meta name="author" content="Nordivo">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init('fLyw3_KzhDfbuaUb_');
+    })();
+  </script>
+  <script type="text/javascript">
+    window.onload = function () {
+      document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
 
-    <meta name="keywords" content="nordivo,web3,software,consultancy">
+        // these IDs from the previous steps
+        emailjs.sendForm('service_pygzszx', 'template_a3ftsvj', this)
+          .then(function () {
+            alert('Your message has been sent!');
+            document.getElementById('name').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('phone').value = "";
+            document.getElementById('subject').value = "";
+            document.getElementById('message').value = "";
+          }, function (error) {
+            console.log('FAILED...', error);
+            alert('Message sent failed!');
+          });
+      });
+    }
+  </script>
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="assets/images/favicons/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="assets/images/favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="assets/images/favicons/manifest.json">
-    <link rel="mask-icon" href="assets/images/favicons/safari-pinned-tab.svg" color="#21252b">
-    <meta name="theme-color" content="#00C66B">
-
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
-
-    <link href="assets/stylesheets/app.css" rel="stylesheet" />
 </head>
 
 <body>
-    <!-- Main Content -->
-    <main>
-        <!-- Hero -->
-        <section id="hero" class="hero">
-            <div class="hero-content">
-                <div class="hero-banner">
-                    <div class="-logo">
-                        <img height="80" viewBox="0 0 191 58" width="350" src="assets/images/default/logo2.png"
-                            alt="Nordivo">
-                    </div>
 
-                    <!-- <div class="-cta js--localscroll">
-                        <a href="mailto:hello@nordivo.com"
-                            class="button button--inverted button--hollow button--hollow--inverted">Get in touch</a>
-                    </div> -->
+  <!--== Loader Start ==-->
+  <div id="loader-overlay">
+    <div class="loader">
+      <div class="spinner-double-dot-in"></div>
+    </div>
+  </div>
+  <!--== Loader End ==-->
 
-                    <div class="-content">
-                        <h1>Coming Soon</h1>
-                        <p class="sub-title">Our new website is coming soon</p>
-                        <br />
-                        <p class="sub-title">Meanwhile you can visit our old website <a
-                                href="https://auroralabz.com"><span
-                                    style="color: rgb(0, 255, 229);">AuroraLabz.com</span></p>
-                        <!--
-                        <div class="cta">
-                            <a href="#"><img src="assets/images/app/hero/app-store.svg" width="202" height="60"
-                                    alt="App store" /></a>
-                            <a href="#"><img src="assets/images/app/hero/google-play.svg" width="202" height="60"
-                                    alt="Google play" /></a>
-                        </div> -->
-                    </div>
+  <!--== Wrapper Start ==-->
+  <div class="wrapper">
 
-                    <div class="-footer">
-                        <p>Follow us</p>
-                        <ul>
-                            <ul>
-                                <li><a href="https://www.linkedin.com/company/nordivo"><span
-                                            class="socicon-linkedin"></span></a></li>
-                                <li><a href="https://twitter.com/nordivohq"><span class="socicon-twitter"></span></a>
-                                </li>
-                                <li><a href="https://www.instagram.com/nordivohq"><span
-                                            class="socicon-instagram"></span></a></li>
-                            </ul>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- <div class="hero-image">
-                    <img src="assets/images/app/hero/phone-render.png" width="360" alt="Phone render" />
-                </div> -->
-            </div>
-
-            <img src="assets/images/app/hero/shadow.png" class="hero-shadow" alt="Shadow" />
-        </section>
-
-        <!-- Highlights -->
-        <section id="section1" class="highlights styled">
-            <hr>
-            <div class="highlights-header">
-                <h6>Some of our services</h6>
-                <h2>What we do.</h2>
-            </div>
-
-            <div class="highlights-icon-box">
-                <div class="-icon">
-                    <i data-feather="globe"></i>
-                </div>
-
-                <div class="-content">
-                    <h5>Web 3.0 Expertises</h5>
-                    <p>We provide cutting-edge blockchain & Web3 solutions in Self-Sovereign Identity and DeFi.
-                    </p>
-                </div>
-            </div>
-
-            <div class="highlights-icon-box">
-                <div class="-icon">
-                    <i data-feather="github"></i>
-                </div>
-
-                <div class="-content">
-                    <h5>Development Services</h5>
-                    <p>We help you translate your vision into web, mobile and cloud applications.</p>
-                </div>
-            </div>
-
-            <div class="highlights-icon-box">
-                <div class="-icon">
-                    <i data-feather="users"></i>
-                </div>
-
-                <div class="-content">
-                    <h5>Remote Teams</h5>
-                    <p>We build low-cost yet competitive technical teams for building your products and
-                        services.</p>
-                </div>
-            </div>
-
-            <img src="assets/images/default/rainbow-glow-1.png" class="highlights-glow" alt="Rainbow glow 1" />
-        </section>
-
-        <!-- Gallery -->
-        <div class="gallery">
-            <!-- <div class="gallery-grid">
-                <div class="-image columns large-4 medium-4 small-12">
-                    <a class="lightbox--js" href="assets/images/app/gallery/image-1.jpg">
-                        <img src="assets/images/app/gallery/image-1.jpg" width="264" alt="Image 1" />
-                    </a>
-                </div>
-                <div class="-image columns large-4 medium-4 small-12">
-                    <a class="lightbox--js" href="assets/images/app/gallery/image-2.jpg">
-                        <img src="assets/images/app/gallery/image-2.jpg" width="264" alt="Image 2" />
-                    </a>
-                </div>
-                <div class="-image columns large-4 medium-4 small-12">
-                    <a class="lightbox--js" href="assets/images/app/gallery/image-3.jpg">
-                        <img src="assets/images/app/gallery/image-3.jpg" width="264" alt="Image 3" />
-                    </a>
-                </div>
-            </div> -->
+    <!--== Header Start ==-->
+    <nav
+      class="navbar navbar-default navbar-fixed navbar-transparent white bootsnav on no-full no-border studio brand-center">
+      <div class="container">
+        <!--== Start Atribute Navigation ==-->
+        <div class="attr-nav hidden-xs sm-display-none">
+          <ul class="social-media-dark social-top">
+            <!-- <li><a href="#" class="icofont icofont-facebook"></a></li>
+            <li><a href="#" class="icofont icofont-twitter"></a></li>
+            <li><a href="#" class="icofont icofont-linkedin"></a></li> -->
+            <li class="side-menu"><a href="#"><i class="icofont icofont-navigation-menu"></i></a></li>
+          </ul>
         </div>
+        <!--== End Atribute Navigation ==-->
 
-        <!-- Clients -->
-        <section class="clients styled">
-            <hr class="half">
+        <!--== Start Header Navigation ==-->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i
+              class="tr-icon ion-android-menu"></i> </button>
+          <div class="logo"> <a href="index.html"><img class="logo logo-display" src="assets/images/logo-white.png"
+                alt=""> <img class="logo logo-scrolled" src="assets/images/logo-black.png" alt=""> </a> </div>
+        </div>
+        <!--== End Header Navigation ==-->
 
-            <div class="clients-testimonials">
-                <div id="testimonials-slider" class="-box">
-                    <!-- Testimonial 1 -->
-                    <div class="-testimonial">
-                        <div class="-content">
-                            <p>“Nordivo's cutting-edge self-sovereign identity & web3
-                                development services enabled us to securely manage
-                                digital identities and leverage the benefits of blockchain technology, creating a
-                                seamless user experience.”</p>
-                        </div>
-                        <div class="-meta">
-                            <h5>Andreas Sigurdsson</h5>
-                            <p><small>ZADA</small></p>
-                        </div>
-                    </div>
+        <!--== Collect the nav links, forms, and other content for toggling ==-->
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+            <li><a class="page-scroll" href="#home">Home</a></li>
+            <li><a class="page-scroll" href="#services">Services</a></li>
+            <li><a class="page-scroll" href="#about">About</a></li>
+            <li><a class="page-scroll" href="#work">Work</a></li>
+            <li><a class="page-scroll" href="#career">Career</a></li>
+            <li><a class="page-scroll" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <!--== /.navbar-collapse ==-->
+      </div>
 
-                    <!-- Testimonial 2 -->
-                    <div class="-testimonial">
-                        <div class="-content">
-                            <p>“Ours was an innovative project. Although many have theorised, non have been able to find
-                                solutions to the issue at hand. We went into unchartered waters
-                                together, and Nordivo delivered a world-class solution.”</p>
-                        </div>
-                        <div class="-meta">
-                            <h5>Sammy Crabbe</h5>
-                            <p><small>OMAXX</small></p>
-                        </div>
-                    </div>
+      <!-- Start Side Menu -->
+      <div class="side dark-bg">
+        <a href="index.html" class="logo-side"><img src="assets/images/logo-white.png" alt="side-logo" /></a>
+        <a href="#" class="close-side"><i class="icofont icofont-close"></i></a>
+        <div class="widget mt-120">
+          <ul class="link">
+            <li class="link-item"><a class="page-scroll" href="#home">Home</a></li>
+            <li class="link-item"><a class="page-scroll" href="#services">Services</a></li>
+            <li class="link-item"><a class="page-scroll" href="#about">About</a></li>
+            <li class="link-item"><a class="page-scroll" href="#work">Work</a></li>
+            <li class="link-item"><a class="page-scroll" href="#career">Career</a></li>
+            <li class="link-item"><a class="page-scroll" href="#contact">Contact</a></li>
 
+          </ul>
+        </div>
+        <ul class="social-media">
+          <li><a href="https://twitter.com/nordivohq" href="_blank" class="icofont icofont-twitter"></a></li>
+          <li><a href="https://www.instagram.com/nordivohq" href="_blank" class="icofont icofont-instagram"></a>
+          </li>
+          <li><a href="https://www.linkedin.com/company/nordivo" href="_blank" class="icofont icofont-linkedin"></a>
+          </li>
+          <!-- <br />
+          <br />
+          <p><a style="color: white" href="#">EN</a> | <a style="color: white" href="#">FI</a></p> -->
+        </ul>
+      </div>
+      <!-- End Side Menu -->
 
+    </nav>
+    <!--== Header End ==-->
+
+    <!--== Hero Slider Start ==-->
+    <div class="remove-padding transition-none" id="home">
+      <div id="rev_slider_1078_2_wrapper" class="rev_slider_wrapper fullwidthbanner-container"
+        data-alias="classic4export" data-source="gallery"
+        style="margin:0px auto;background-color:#000000;padding:0px;margin-top:0px;margin-bottom:0px;">
+        <!-- START REVOLUTION SLIDER 5.4.1 fullwidth mode -->
+        <div id="rev_slider_1078_2" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.1">
+          <ul>
+            <!-- SLIDE  -->
+            <li data-index="rs-3045" data-transition="zoomout" data-slotamount="default" data-hideafterloop="0"
+              data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default"
+              data-rotate="0" data-saveperformance="off" data-title="" data-param1="" data-param2="" data-param3=""
+              data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10=""
+              data-description="">
+              <!-- MAIN IMAGE -->
+              <img src="assets/videos/home-bg.png" alt="" data-bgposition="center center" data-bgfit="cover"
+                data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+              <!-- LAYERS -->
+
+              <!-- BACKGROUND VIDEO LAYER -->
+              <div class="rs-background-video-layer" data-forcerewind="on" data-volume="mute" data-videowidth="100%"
+                data-videoheight="100%" data-videomp4="assets/videos/bg-vid.mp4" data-videopreload="auto"
+                data-videoloop="loop" data-aspectratio="16:9" data-autoplay="true" data-autoplayonlyfirsttime="false">
+              </div>
+
+              <!-- LAYER NR. 1 -->
+              <div class="hero-text-wrap dark-overlay-bg">
+
+                <div class="tp-caption Agency-Title tp-resizeme" id="slide-2971-layer-2"
+                  data-x="['center','center','center','center']" data-hoffset="['-20','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['70','-101','-108','-107']"
+                  data-fontsize="['80','90','80','70']" data-lineheight="['100','90','100','70']" data-width="none"
+                  data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
+                  data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1000,"to":"o:1;","delay":1250,"ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
+                  data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
+                  data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                  style="z-index: 8; white-space: nowrap;text-transform:uppercase;font-family: 'Raleway', sans-serif; text-shadow: 1px 1px 0px rgba(0,0,0, 0.3)">
+                  Enabling A<br /> Decentralised Future
                 </div>
 
-                <div class="-controls">
-                    <div id="slick-dots"></div>
-                    <div id="slick-arrow"></div>
+                <div class="tp-caption NotGeneric-Title tp-resizeme" id="slide-3045-layer-1"
+                  data-x="['center','center','center','center']" data-hoffset="['-65','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['250','50','50','50']"
+                  data-fontsize="['25','25','25','25']" data-lineheight="['40','40','40','30']" data-width="none"
+                  data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on"
+                  data-frames='[{"delay":1500,"speed":2000,"frame":"0","from":"x:-200px;skX:85px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                  data-textAlign="['left','left','left','left']" data-paddingtop="[10,10,10,10]"
+                  data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]"
+                  style="font-family: 'Raleway', sans-serif;font-weight:350;text-transform:uppercase;letter-spacing:2px; text-shadow: 1px 1px 0px rgba(0,0,0, 0.3)">
+                  We fuse design, engineering, and blockchains<br /> to help businesses innovate. So they can
+                  build
+                  the future of <span style="font-family:sans-serif;">web 3.0</span>
                 </div>
+
+              </div>
+
+            </li>
+          </ul>
+          <div class="tp-bannertimer" style="height: 3px; background-color: rgba(255, 255, 255, 0.25);"></div>
+        </div>
+      </div>
+    </div>
+    <!--== Hero Slider End ==-->
+
+    <!--== Who We Are Start ==-->
+    <div class="white-bg pt-120 pb-120 our-service-desktop-section" id="services">
+      <div class="container-fluid" style="margin-left: 10%; margin-right: 10%">
+        <div class="row">
+          <div class="col-md-8 centerize-col text-center">
+            <div class="section-title">
+              <h4 class="default-color">What We Offer</h4>
+              <h1>Our Services</h1>
+              <p>
+                We provide a full suite of tactical services for projects and companies to help them take their
+                software
+                solutions & decentralised ecosystems from proof-of-concept to production. We take pride in working with
+                open
+                source and closed source projects.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-50">
+          <div class="col-md-4">
+            <div class="feature-box text-right mb-50 wow fadeInRight" data-wow-delay="0.1s">
+              <i class="icofont icofont-finger-print font-40px"></i>
+              <h3 class="mt-0 font-600"><a>Self-Sovereign Identity</a></h3>
+              <p class="font-400">Engage with decentralised identity for your ecosystem and plug into the identity layer
+                of web3.0.</p>
+
             </div>
 
-            <div class="clients-content">
-                <div class="-header">
-                    <h6>Client testimonials</h6>
-                    <h2>Why we do it.</h2>
-                    <p>Our clients love us, that's not bragging that's a fact. We think it may have something to do with
-                        how
-                        satisfied they are.</p>
-                </div>
-
-                <ul class="-clients">
-                    <li>
-                        <a href="#"><img
-                                src="https://raw.githubusercontent.com/osancus/auroralabz/main/assets/images/clients/zada-logo.png"
-                                width="128" alt="ZADA" /></a>
-                    </li>
-                    <li>
-                        <a href="#"><img
-                                src="https://raw.githubusercontent.com/osancus/auroralabz/main/assets/images/clients/omaxx-logo.png"
-                                width="128" alt="OMAXX" /></a>
-                    </li>
-                    <li>
-                        <a href="#"><img
-                                src="https://raw.githubusercontent.com/osancus/auroralabz/main/assets/images/clients/ohn-logo.png"
-                                width="128" alt="One Hypernet" /></a>
-                    </li>
-                </ul>
+            <div class="feature-box text-right pt-120 mb-50 wow fadeInRight" data-wow-delay="0.3s">
+              <i class="icofont icofont-bitcoin font-40px"></i>
+              <h3 class="mt-0 font-600"><a>Asset Tokenization</a></h3>
+              <p class="font-400">Create value by harnessing smart contracts power. Enables security, utility and
+                digital ownership.</p>
+            </div>
+          </div>
+          <div class="col-md-4 mt-0 sm-mt-80 wow zoomIn" data-wow-delay="0.4s">
+            <img class="img-responsive" src="assets/images/solarsystem.png" alt="">
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box text-left mb-50 wow fadeInLeft" data-wow-delay="0.5s">
+              <i class="icofont icofont-people font-40px"></i>
+              <h3 class="mt-0 font-600"><a>Offshore teams </a></h3>
+              <p class="font-300">Build a low-cost yet competitive technical team for your software
+                development.</p>
             </div>
 
-            <img src="assets/images/default/rainbow-glow-2.png" class="clients-glow" alt="Rainbow glow 2" />
-        </section>
+            <div class="feature-box text-left pt-120 mb-50 wow fadeInLeft" data-wow-delay="0.7s">
+              <i class="icofont icofont-bank font-40px"></i>
+              <h3 class="mt-0 font-600"><a>Decentralised Finance</a></h3>
+              <p class="font-300">Bring innovation to your financial products and services with blockchains. Unlock a
+                new economic realm.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== Who We Are End ==-->
+
+    <!--== Who We Are Start ==-->
+    <div class="white-bg pt-120 pb-120 our-service-mob-section" id="feature">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 centerize-col text-center">
+            <div class="section-title">
+              <h4 class="default-color">What We Offer</h4>
+              <h1>Our Services</h1>
+              <p>
+                We provide a full suite of tactical services for projects and companies to help them take their
+                software
+                solutions & decentralised ecosystems from proof-of-concept to production. We take pride in working with
+                open
+                source and closed source projects.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-50">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div
+              class="feature-box text-center xs-mb-30 sm-mb-30 feature-box-default-bg light-border center-feature wow fadeInLeft"
+              data-wow-delay="0.1s">
+              <i class="icofont icofont-finger-print font-40px"></i>
+              <h4 class="mt-0 font-600 our-service-mobile-view-sub-section">Self-Sovereign Identity</h4>
+              <p class="font-400">Engage with decentralised identity for your ecosystem and plug into the identity layer
+                of web3.0.</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div
+              class="feature-box text-center xs-mb-30 sm-mb-30 feature-box-default-bg light-border center-feature wow fadeInUp"
+              data-wow-delay="0.2s">
+              <i class="icofont icofont-bitcoin font-40px"></i>
+              <h4 class="mt-0 font-600 our-service-mobile-view-sub-section">Smart Contracts</h4>
+              <p class="font-400">Create value by harnessing smart contracts power. Enables security, utility and
+                digital ownership.</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div
+              class="feature-box text-center xs-mb-30 feature-box-default-bg light-border center-feature wow fadeInDown"
+              data-wow-delay="0.3s">
+              <i class="icofont icofont-people font-40px"></i>
+              <h4 class="mt-0 font-600 our-service-mobile-view-sub-section">Software Development</h4>
+              <p class="font-400">Build a low-cost yet competitive technical team for building your software
+                products and services.</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="feature-box text-center feature-box-default-bg light-border center-feature wow fadeInRight"
+              data-wow-delay="0.4s">
+              <i class="icofont icofont-bank font-40px"></i>
+              <h4 class="mt-0 font-600 our-service-mobile-view-sub-section">Decentralised Finance</h4>
+              <p class="font-400">Bring innovation to your financial products and services with blockchains. Unlock a
+                new economic realm.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== Who We Are End ==-->
+
+    <!--== About Company Start ==-->
+    <div class="white-bg pt-120 pb-120 relative" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 xs-mb-50">
+            <div class="section-title text-justify">
+              <h4 class="default-color">Who We Are</h4>
+              <h1>About Us</h1>
+              <p>
+                We are a web 3.0 engineering partner for forward-thinking companies that drive innovation with
+                blockchains. We specialize in building decentralized ecosystems and delivering premium software
+                development services to enterprises and startups. We utilize and build remote engineering teams based in
+                South Asia & Europe for your software development. We take care of the tech, so you can focus on what
+                matters the most for your business.
+              </p>
+              <p>
+                Our clients are forward-thinking startups and corporations who aspire to explore unchartered territories
+                of the decentralized realms. While maintaining Nordic quality and development standards, we offer
+                competitive costs due to the nature of our team's geographic locations. Your tactical teams can be
+                operational within 48-hours and will be well equipped to take you from exploratory proof-of-concept to
+                production.
+              </p>
+              <p class="mt-30">
+                <a href="#work" class="btn btn-color btn-md btn-default btn-our-work page-scroll">See Our Work</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="img-container">
+        <div class="mockup-1">
+          <div class="object object-1">
+            <img src="assets/images/portfolio/grid/img-1.jpg" class="img-responsive wow fadeInRight"
+              data-wow-delay="0.1s" alt="img-1" width="395" height="243" />
+          </div>
+          <div class="object object-2">
+            <img src="assets/images/portfolio/grid/img-2.jpg" class="img-responsive wow fadeInRight"
+              data-wow-delay="0.2s" alt="img-2" width="384" height="189" />
+          </div>
+          <div class="object object-3">
+            <img src="assets/images/portfolio/grid/img-3.jpg" class="img-responsive wow fadeInRight"
+              data-wow-delay="0.3s" alt="img-3" width="395" height="243" />
+          </div>
+          <div class="object object-4">
+            <img src="assets/images/portfolio/grid/img-4.jpg" class="img-responsive wow fadeInRight"
+              data-wow-delay="0.4s" alt="img-4" width="209" height="184" />
+          </div>
+          <div class="object object-5">
+            <img src="assets/images/portfolio/grid/img-5.jpg" class="img-responsive wow fadeInRight"
+              data-wow-delay="0.5s" alt="img-5" width="395" height="243" />
+          </div>
+          <div class="object object-6">
+            <img src="assets/images/portfolio/grid/img-6.jpg" class="img-responsive wow fadeInRight"
+              data-wow-delay="0.6s" alt="img-1" width="275" height="184" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== About Company End ==-->
 
 
-    </main>
+    <!--== Portfolio Start ==-->
+    <div class="grey-bg pb-0 pt-120" id="work">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 centerize-col text-center">
+            <div class="section-title">
+              <h4 class="default-color">Selective Clients & Projects</h4>
+              <h1>Our Works</h1>
+              <p>
+                We build future products and services, and our teams help our clients adapt and stay ahead in an
+                increasingly complex world.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="portfolio-gallery-filter" class="cbp-l-filters-alignCenter text-sm-center mt-50">
+              <div data-filter="*" class="cbp-filter-item-active cbp-filter-item dark">
+                All
+              </div>
+              <div data-filter=".ssi" class="cbp-filter-item">
+                Self-Sovereign Identity
+              </div>
+              <div data-filter=".defi" class="cbp-filter-item">
+                DeFi & Asset Tokenization
+              </div>
 
-    <!-- Footer -->
-    <footer class="footer styled">
-        <div class="footer-content">
-            <ul class="-social">
-                <li><a href="https://www.linkedin.com/company/nordivo"><span class="socicon-linkedin"></span></a>
-                </li>
-                <li><a href="https://twitter.com/nordivohq"><span class="socicon-twitter"></span></a></li>
-                <li><a href="https://www.instagram.com/nordivohq"><span class="socicon-instagram"></span></a></li>
-            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid remove-padding">
+        <div class="row mt-50">
+          <div class="col-md-12">
+            <div id="portfolio-gallery" class="cbp">
 
-            <div class="-logo">
-                <a href="https://nordivo.com">
-                    <img height="28" viewBox="0 0 191 58" width="125" src="assets/images/default/logo2.png"
-                        alt="Nordivo" />
+              <!-- SSI -->
+              <div class="cbp-item ssi col-md-4 col-sm-6">
+                <a href="works.html#zada-wallet">
+                  <div class="portfolio gallery-image-hover text-center">
+                    <div class="folio-overlay"></div>
+                    <img class="zoom" src="assets/images/portfolio/grid/zada-wallet.jpg" alt="">
+                    <div class="portfolio-wrap">
+                      <div class="portfolio-description">
+
+                        <h3 class="portfolio-title mt-0">ZADA Wallet</h3>
+                        <hr class="portfolio-line" />
+                        <h6 class="links">Enabling digital trust by utilizing mobile wallets for digital identities and
+                          digital data verification
+                        </h6>
+                        <h4 class="portfolio-readmore">READ MORE</h4>
+                      </div>
+                    </div>
                 </a>
+              </div>
+
+
             </div>
 
-            <p class="-copyright">
-                <small>© <time datetime="2023">2023</time> Nordivo Oy. All rights reserved.</small>
-            </p>
+
+
+            <div class="cbp-item ssi col-md-4 col-sm-6">
+              <a href="works.html#vaccify">
+                <div class="portfolio gallery-image-hover text-center">
+                  <div class="folio-overlay"></div>
+                  <img src="assets/images/portfolio/grid/vaccify.jpg" alt="">
+                  <div class="portfolio-wrap">
+                    <div class="portfolio-description">
+                      <h3 class="portfolio-title mt-0">Vaccfiy</h3>
+                      <hr class="portfolio-line" />
+                      <h6 class="links">Allowing seamless travel amid pandamic by COVIDPass identity credentials</h6>
+                      <h4 class="portfolio-readmore">READ MORE</h4>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="cbp-item ssi col-md-4 col-sm-6">
+              <a href="works.html#ourwork">
+                <div class="portfolio gallery-image-hover text-center">
+                  <div class="folio-overlay"></div>
+                  <img class="zoom" src="assets/images/portfolio/grid/identity.jpg" alt="">
+                  <div class="portfolio-wrap">
+                    <div class="portfolio-description">
+                      <h3 class="portfolio-title mt-0">ZADA Identity Network</h3>
+                      <hr class="portfolio-line" />
+                      <h6 class="links">Securing exchange of personal data and
+                        identities by using decentralized identity networks </h6>
+                      <h4 class="portfolio-readmore">READ MORE</h4>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- SSI -->
+
+
+
+
+            <!-- DeFi -->
+            <div class="cbp-item defi col-md-6 col-sm-6">
+              <a href="works.html#onehypernet">
+                <div class="portfolio gallery-image-hover text-center">
+                  <div class="folio-overlay"></div>
+                  <img class="payment-img" src="assets/images/portfolio/grid/payments.jpg" alt="">
+                  <div class="portfolio-wrap">
+                    <div class="portfolio-description">
+                      <h3 class="portfolio-title mt-0">OneHypernet</h3>
+                      <hr class="portfolio-line" />
+                      <h6 class="links">Connecting the world’s foreign exchange markets – banks, corporates, and payment
+                        service providers on a unified ecosystem</h6>
+                      <h4 class="portfolio-readmore">READ MORE</h4>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- DeFi -->
+
+
+            <!-- Asset Tokenization -->
+            <div class="cbp-item asset defi col-md-6 col-sm-6">
+              <a href="works.html#omaxx">
+                <div class="portfolio gallery-image-hover text-center">
+                  <div class="folio-overlay"></div>
+                  <img class="omaxx-img" src="assets/images/portfolio/grid/omaxx.jpg" alt="">
+                  <div class="portfolio-wrap">
+                    <div class="portfolio-description">
+                      <h3 class="portfolio-title mt-0">OMAXX</h3>
+                      <hr class="portfolio-line" />
+                      <h6 class="links">Enabling fundraising and equity crowdfunding by decentralised secondary markets
+                      </h6>
+                      <h4 class="portfolio-readmore">READ MORE</h4>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Asset Tokenization -->
+
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+  <!--== Portfolio End ==-->
 
-    <!-- Javascript -->
-    <script src="assets/javascripts/libraries/jquery.js"></script>
-    <script src="assets/javascripts/libraries/threejs.js"></script>
-    <script src="assets/javascripts/libraries/projector.js"></script>
-    <script src="assets/javascripts/libraries/canvasrenderer.js"></script>
+  <!--== Call to Actions Start ==-->
+  <section class="parallax-bg fixed-bg sm-pb-80 sm-pt-80" style="padding-top: 2%; padding-bottom: 2%;"
+    data-parallax-bg-image="" data-parallax-speed="0.5" data-parallax-direction="up">
+    <div class="overlay-bg2"></div>
+    <div class="container">
 
-    <script src="assets/javascripts/plugins/feather.js"></script>
-    <script src="assets/javascripts/plugins/magnific-popup.js"></script>
-    <script src="assets/javascripts/plugins/slick-carousel.js"></script>
+      <div class="row">
+        <div class="col-md-8 centerize-col text-center">
+          <h4 style="color: white;">Some Of Our Selective Clients</h4>
+        </div>
+      </div>
 
-    <script src="assets/javascripts/3d/field.js"></script>
-    <link rel="stylesheet" href="assets/socicon/css/socicon.css">
+      <div class="row row-flex flex-center">
+        <div class="col-md-3 col-sm-6 col-xs-6 xs-mb-30 sm-mb-30">
+          <div class="counter-wrap wow fadeInLeft" data-wow-delay="0.1s">
+            <img src="assets/images/clients/zada-logo.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 xs-mb-30 sm-mb-30">
+          <div class="counter-wrap wow fadeInUp" data-wow-delay="0.2s">
+            <img src="assets/images/clients/omaxx-logo.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 xs-mb-30">
+          <div class="counter-wrap wow fadeInDown" data-wow-delay="0.3s">
+            <img src="assets/images/clients/vaccify-logo.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 sm-mb-30">
+          <div class="counter-wrap wow fadeInRight" data-wow-delay="0.4s">
+            <img src="assets/images/clients/ohn-logo.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--== Call to Actions End ==-->
 
-    <script src="assets/javascripts/main.js"></script>
-    <script src="assets/javascripts/app.js"></script>
+
+  <!--==  Career ==-->
+  <div class="grey-bg pt-0 pb-0 about-section sm-pt-50 sm-pb-50" id="career">
+    <div class="col-md-6 col-sm-6 bg-flex bg-flex-left">
+      <div class="bg-flex-holder bg-flex-cover" style="background-image: url(assets/images/bg-left-img-2.jpg);"></div>
+    </div>
+    <div class="container-fluid">
+      <div class="col-md-6 col-sm-6 col-md-offset-6 col-sm-offset-6">
+        <div class="col-inner spacer text-left wow fadeInLeft" data-wow-delay="0.1s">
+          <div class="mission-section xs-mb-80">
+            <div class="section-title">
+              <h4 class="default-color">Work With Us</h4>
+              <h1>Career @ Nordivo</h1>
+              <p>We are always looking for exceptional talent. Join us to help forward-thinking organizations innovate
+                the future of web3 or, as we say, enable a decentralised future together.</p>
+            </div>
+            <div class="panel-group accordion-style-01" id="accordion-style">
+              <div class="panel">
+                <div class="panel-heading active-accordion"> <a data-toggle="collapse" data-parent="#accordion-style"
+                    href="#question1" aria-expanded="false" class="collapsed">
+                    <div class="panel-title">Our Promise <span class="pull-right"><i class="ion-android-add"></i></span>
+                    </div>
+                  </a> </div>
+                <div id="question1" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+                  <div class="panel-body"> We believe in people, and our promise is and always will be the force that
+                    drives us to evolve into the company we wish to be for all the people associated with us.
+
+                    <dl>
+                      <dt>
+                        <h5><b>We are all about people</b></h5>
+                      </dt>
+                      <div style="color: rgb(92, 92, 92); margin-left: 1%;">
+                        <dd>We follow an honest and open mindset.</dd>
+                        <dd>We believe trust is given; we care and trust each other.</dd>
+                        <dd>We empower people; We encourage and enable each other.</dd>
+                      </div>
+                      <dt>
+                        <h5><b>We are committed to helping you become a better version of you</b></h5>
+                      </dt>
+                      <div style="color: rgb(92, 92, 92); margin-left: 1%;">
+                        <dd> We help you find a path of personal growth.</dd>
+                        <dd> We challenge each other's ideas and decisions.</dd>
+                        <dd>We support each other as we learn and grow as individuals and professionals.</dd>
+                      </div>
+                      <dt>
+                        <h5><b>We are enabling a decentralised future</b></h5>
+                      </dt>
+                      <div style="color: rgb(92, 92, 92); margin-left: 1%;">
+                        <dd> Our work makes meaning; it makes an impact on society and the future as we help our
+                          clients thrive and innovate for a more decentralised future.</dd>
+                      </div>
+                      <dt>
+                        <h5><b>We are International, with Nordic & South Asian roots</b></h5>
+                      </dt>
+                      <div style="color: rgb(92, 92, 92); margin-left: 1%;">
+                        <dd>We are based in Finland & Pakistan, but our teams have members from all over the world.
+                        </dd>
+                      </div>
+                    </dl>
+
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-heading"> <a data-toggle="collapse" data-parent="#accordion-style" href="#question3"
+                    aria-expanded="false" class="collapsed">
+                    <div class="panel-title">What It Takes <span class="pull-right"><i
+                          class="ion-android-add"></i></span> </div>
+                  </a> </div>
+                <div id="question3" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+                  <div class="panel-body"> We are proud of our culture and lean, flat company structure. We love to
+                    work with leaders who resonate with our core values; whether we're discussing ideas for new
+                    projects
+                    or deciding on the best approach to solving a problem, these values define how we operate at
+                    Nordivo.
+                    <div style="color: rgb(92, 92, 92); margin-left: 4%; margin-top: 2%;">
+                      <ul>
+                        <li>Intense Ownership</li>
+                        <li>Growth and Humble Mindset</li>
+                        <li>Innovate and Simplify</li>
+                        <li>Transparency and Genuinity</li>
+                        <li>Curiousity at Heart</li>
+                        <li>Deep Diving Knack</li>
+                        <li>Relentless High Standards</li>
+                        <li>Action over words</li>
+                        <li>Backbone to Disagree and Commit</li>
+                        <li>Never settling</li>
+                      </ul>
+                      <div>
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-heading"> <a data-toggle="collapse" data-parent="#accordion-style" href="#question4"
+                    aria-expanded="false" class="collapsed">
+                    <div class="panel-title">Perks & Benefits<span class="pull-right"><i
+                          class="ion-android-add"></i></span>
+                    </div>
+                  </a> </div>
+                <div id="question4" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+                  <div class="panel-body"> Besides our overall cultural and organizational model, we offer a wide
+                    variety of perks and benefits to people working with us. Because we believe taking care of you
+                    translates into customer success.
+
+                    <div style="color: rgb(92, 92, 92); margin-left: 4%; margin-top: 2%;">
+                      <ul>
+                        <li>A competitive salary paid in EUR</li>
+                        <li>Nordivo Hybrid Work Model</li>
+                        <li>An equity vesting program</li>
+                        <li>Home Internet Allowance</li>
+                        <li>Mobile Subscription Allowance</li>
+                        <li>Sports & Culture Allowance</li>
+                        <li>Co-working Space Allowance for remote positions</li>
+                        <li>Furniture & equipment to furnish home office</li>
+                        <li>State-of-the-art working tech equipment</li>
+                        <li>Extended Health insurance</li>
+                        <li>Certification programs</li>
+                        <li>Open Source Contribution Bonuses</li>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <p class="mt-30">
+                <a class="btn btn-lg btn-color btn-default" target="_blank"
+                  href="https://forms.gle/weyg78Krq8iLV6RGA">Apply for an open position</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--== Career ==-->
+
+
+  <!--== Contact Start ==-->
+  <div class="white-bg pt-120 pb-120" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12 contact-us-sec">
+          <div class="section-title text-left">
+            <h4 class="default-color mt-0">Talk with us</h4>
+            <h1>Contact Us</h1>
+          </div>
+          <div class="mt-50 contacts-section">
+            <div class="icon-text feature-box-2 mb-30 clearfix">
+              <div class="icon">
+                <i class="icofont icofont-google-map font-30px white-color"></i>
+              </div>
+              <h3 class="mt-0">Locations</h3>
+              <div class="dis">
+                Yliopistonkatu 4, 00100 Helsinki, Finland
+              </div>
+            </div>
+            <div class="icon-text feature-box-2 mb-30 clearfix" style="padding-top: 2%; padding-bottom: 2%;">
+              <div class="icon">
+                <i class="icofont icofont-iphone font-30px white-color"></i>
+              </div>
+              <h3 class="mt-0">Call Us</h3>
+              <div class="dis">
+                +358 401 8383 73
+              </div>
+            </div>
+            <div class="icon-text feature-box-2 mb-30 clearfix">
+              <div class="icon">
+                <i class="icofont icofont-mail font-30px white-color"></i>
+              </div>
+              <h3 class="mt-0">Email Us</h3>
+              <div class="dis">
+                <a href="mailto:hello@Nordivo.com">hello@Nordivo.com</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="col-md-6 col-sm-6 col-xs-12 form-card"
+          style="box-shadow: 0 4px 8px 0 rgba(132, 132, 132, 0.1), 0 6px 20px 0 rgba(132, 132, 132, 0.1); border-radius: 15px;">
+
+          <div class="row" style="margin-left: 4%; margin-right: 4%; margin-top: 4%; margin-bottom: 4%;">
+            <div class="col-md-4 col-sm-4 text-center">
+
+              <img style="border-radius: 50%; max-width: 120px; max-height: 120px;" src="./assets/images/bd.jpg"
+                alt="Avatar">
+              <h4 class="mt-0 line-height-50">Get in touch</h4>
+            </div>
+
+            <div class="col-md-4 col-sm-4 text-center">
+              <i class="icofont icofont-ui-calendar font-30px" style="color: black;"></i>
+              <h5 class="mt-20">Schedule a discovery call with our</h5>
+              <p class="mt-10 font-200">Business Development Team</p>
+            </div>
+
+            <div class="col-md-4 col-sm-4 text-center">
+              <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+              <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+              <a class="btn btn-dark btn-md btn-default" style="margin-top: 50%;" href=""
+                onclick="Calendly.initPopupWidget({url: 'https://calendly.com/Nordivo?hide_gdpr_banner=1'});return false;">Schedule</a>
+            </div>
+          </div>
+
+          <p style="width: 100%; 
+            text-align: center; 
+            border-bottom: 1px solid rgb(202, 202, 202); 
+            line-height: 0.1em;
+            margin: 10px 0 20px;"><span style="background:#fff; 
+    padding:0 10px; ">OR</span></p>
+
+          <div class="row" style="margin-left: 4%; margin-right: 4%; margin-bottom: 4%; margin-top: -4%;">
+            <form name="contact-form" id="contact-form" class="contact-form-style-01">
+              <div class="messages"></div>
+              <div class="row mt-50">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      <div class="form-group">
+                        <label class="sr-only" for="name">Name</label>
+                        <input type="text" name="name" class="md-input" id="name" placeholder="Name *" required
+                          data-error="Your Name is Required">
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <div class="form-group">
+                        <label class="sr-only" for="email">Email</label>
+                        <input type="email" name="email" class="md-input" id="email" placeholder="Email *" required=""
+                          data-error="Please Enter Valid Email">
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      <div class="form-group">
+                        <label class="sr-only" for="phone">Phone</label>
+                        <input type="text" name="phone" class="md-input" id="phone" placeholder="Phone">
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <div class="form-group">
+                        <label class="sr-only" for="subject">Subject</label>
+                        <input type="text" name="subject" class="md-input" id="subject" placeholder="Subject">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <label class="sr-only" for="message">Your Message *</label>
+                    <textarea name="message" class="md-textarea" id="message" rows="3" required
+                      data-error="Please, Leave us a message" placeholder="Your Message*"></textarea>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="text-center">
+                    <button type="submit" name="submit" style="width: 150px; margin-bottom:2%; opacity: 1"
+                      class="btn btn-color btn-md btn-default btn-animate"><span>Send
+                        <i class="ion-android-arrow-forward"></i></span></button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--== Contact End ==-->
+
+  <!--== Footer Start ==-->
+  <footer class="footer">
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row wow fadeInUp" data-wow-delay="0.1s">
+          <div class="col-md-8 centerize-col text-center">
+            <div class="footer-logo">
+              <a href="index.html"><img src="assets/images/logo-white.png" class="img-responsive centerize-col"
+                  alt="Footer Logo" /></a>
+            </div>
+            <div class="copy-right">© <span id="year">2022</span> Nordivo Oy. All Rights Reserved</div>
+            <div style="margin: 1%; font-size:x-small">
+              Nordivo is a registered trademark of Nordivo Oy in the European Union and
+              various
+              other jurisdictions.<br /> Privacy policy In <a href="terms.html" style="color:lightgray;">English</a>
+            </div>
+            <ul class="social-media mt-30 float-none">
+              <li><a href="https://twitter.com/nordivohq" href="_blank" class="icofont icofont-twitter"></a></li>
+              <li><a href="https://www.instagram.com/nordivohq" href="_blank" class="icofont icofont-instagram"></a>
+              </li>
+              <li><a href="https://www.linkedin.com/company/nordivo" href="_blank" class="icofont icofont-linkedin"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--== Footer End ==-->
+
+  <!--== Go to Top  ==-->
+  <a href="javascript:" id="return-to-top"><i class="icofont icofont-arrow-up"></i></a>
+  <!--== Go to Top End ==-->
+
+  </div>
+  <!--== Wrapper End ==-->
+
+  <!--== Javascript Plugins ==-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1eO-IAC9PhPE5APzZDSs8W40ewuxnsu8"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/smoothscroll.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/master.js"></script>
+
+  <!-- Revolution js Files -->
+  <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
+  <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+  <script src="revolution/js/revolution.extension.actions.min.js"></script>
+  <script src="revolution/js/revolution.extension.carousel.min.js"></script>
+  <script src="revolution/js/revolution.extension.kenburn.min.js"></script>
+  <script src="revolution/js/revolution.extension.layeranimation.min.js"></script>
+  <script src="revolution/js/revolution.extension.migration.min.js"></script>
+  <script src="revolution/js/revolution.extension.navigation.min.js"></script>
+  <script src="revolution/js/revolution.extension.parallax.min.js"></script>
+  <script src="revolution/js/revolution.extension.slideanims.min.js"></script>
+  <script src="revolution/js/revolution.extension.video.min.js"></script>
+  <!--== Javascript Plugins End ==-->
+
 </body>
 
 </html>
