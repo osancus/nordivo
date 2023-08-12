@@ -5,7 +5,7 @@ class Header extends HTMLElement {
         <header class="theme-main-menu sticky-menu theme-menu-one">
         <div class="inner-content">
             <div class="d-flex align-items-center justify-content-between">
-                <div class="logo"><a href="${basePath}index.html"><img src="${basePath}images/logo/logo-white.png" alt="" width="147"></a>
+                <div class="logo"><a href="${basePath}index"><img src="${basePath}images/logo/logo-white.png" alt="" width="147"></a>
                 </div>
                 <nav class="navbar navbar-expand-lg">
                     <button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
@@ -16,47 +16,47 @@ class Header extends HTMLElement {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="d-block d-lg-none">
-                                <div class="logo"><a href="${basePath}index.html"><img src="${basePath}images/logo/logo-color.png" alt=""
+                                <div class="logo"><a href="${basePath}index"><img src="${basePath}images/logo/logo-color.png" alt=""
                                             width="127"></a></div>
                             </li>
                             <li class="nav-item dropdown mega-dropdown">
-                                <a class="nav-link dropdown-toggle" href="${basePath}index.html">Home</a>
+                                <a class="nav-link dropdown-toggle" href="${basePath}index">Home</a>
 
                             </li>
                             <li class="nav-item dropdown ">
-                                <a class="nav-link dropdown-toggle" href="${basePath}services.html" role="button" 
+                                <a class="nav-link dropdown-toggle" href="${basePath}services" role="button" 
                                     data-bs-auto-close="outside" aria-expanded="false">Services</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="${basePath}ssi-service.html" class="dropdown-item"><span>Self-Sovereign
+                                    <li><a href="${basePath}ssi-service" class="dropdown-item"><span>Self-Sovereign
                                                 Identity</span></a></li>
-                                    <li><a href="${basePath}web3-service.html" class="dropdown-item"><span>Web 3.0 Development</span></a></li>
-                                    <li><a href="${basePath}dev-service.html" class="dropdown-item"><span>Software Development</span></a></li>
+                                    <li><a href="${basePath}web3-service" class="dropdown-item"><span>Web 3.0 Development</span></a></li>
+                                    <li><a href="${basePath}dev-service" class="dropdown-item"><span>Software Development</span></a></li>
                                 </ul>
                             </li>
 
                             <li class="nav-item dropdown mega-dropdown">
-                            <a class="nav-link dropdown-toggle" href="${basePath}portfolio.html">Our Work</a>
+                            <a class="nav-link dropdown-toggle" href="${basePath}portfolio">Our Work</a>
 
                         </li>
                            
                             
                             <li class="nav-item dropdown mega-dropdown">
-                                <a class="nav-link dropdown-toggle" href="${basePath}about-us.html">About us</a>
+                                <a class="nav-link dropdown-toggle" href="${basePath}about-us">About us</a>
 
                             </li>
                             <li class="nav-item dropdown mega-dropdown">
-                                <a class="nav-link dropdown-toggle" href="${basePath}blog.html" >Blog</a>
+                                <a class="nav-link dropdown-toggle" href="${basePath}blog" >Blog</a>
 
                             </li>
                             <li class="nav-item dropdown mega-dropdown">
-                                <a class="nav-link dropdown-toggle" href="${basePath}contact-us.html">Contact us</a>
+                                <a class="nav-link dropdown-toggle" href="${basePath}contact-us">Contact us</a>
 
                             </li>
                             
                         </ul>
                         <div class="offcanvas offcanvas-end sidebar-nav" tabindex="-1" id="offcanvasRight">
                         <div class="offcanvas-header">
-                          <div class="logo"><a href="${basePath}index.html"><img src="${basePath}images/logo/logo-color.png" alt="" width="127"></a>
+                          <div class="logo"><a href="${basePath}index"><img src="${basePath}images/logo/logo-color.png" alt="" width="127"></a>
                           </div>
                           <button type="button" class="close-btn tran3s" data-bs-dismiss="offcanvas" aria-label="Close"><i
                               class="bi bi-x-lg"></i></button>
@@ -65,13 +65,13 @@ class Header extends HTMLElement {
                         <div class="sidebar-nav-item">
                           <ul class="style-none">
                   
-                            <li class="nav-item"><a href="${basePath}index.html">Home</a></li>
-                            <li class="nav-item"><a href="${basePath}services.html">Services</a></li>
-                            <li class="nav-item"><a href="${basePath}portfolio.html">Our Work</a></li>
-                            <li class="nav-item"><a href="${basePath}career.html">Careers</a></li>
-                            <li class="nav-item"><a href="${basePath}about-us.html">About us</a></li>
-                            <li class="nav-item"><a href="${basePath}blog.html">Blog</a></li>
-                            <li class="nav-item"><a href="${basePath}contact-us.html">Contact us</a></li>
+                            <li class="nav-item"><a href="${basePath}index">Home</a></li>
+                            <li class="nav-item"><a href="${basePath}services">Services</a></li>
+                            <li class="nav-item"><a href="${basePath}portfolio">Our Work</a></li>
+                            <li class="nav-item"><a href="${basePath}career">Careers</a></li>
+                            <li class="nav-item"><a href="${basePath}about-us">About us</a></li>
+                            <li class="nav-item"><a href="${basePath}blog">Blog</a></li>
+                            <li class="nav-item"><a href="${basePath}contact-us">Contact us</a></li>
                           </ul>
                         </div>
                   
@@ -113,27 +113,27 @@ class Footer extends HTMLElement {
           <div class="container">
             <div class="row">
               <div class="col-xl-3 col-lg-2 mb-40">
-                <div class="logo"><a href="index.html"><img src="${basePath}images/logo/logo-color.png" alt=""
+                <div class="logo"><a href="index"><img src="${basePath}images/logo/logo-color.png" alt=""
                       width="127"></a></div>
               </div>
               <div class="col-lg-2 col-md-3 col-sm-6 mb-40">
                 <h5 class="title">Links</h5>
                 <ul class="footer-list style-none">
-                  <li><a href="${basePath}index.html">Home</a></li>
-                  <li><a href="${basePath}services.html">Services</a></li>
-                  <li><a href="${basePath}portfolio.html">Our Work</a></li>
-                  <li><a href="${basePath}career.html">Careers</a></li>
-                  <li><a href="${basePath}about-us.html">About us</a></li>
-                  <li><a href="${basePath}blog.html">Blog</a></li>
-                  <li><a href="${basePath}contact-us.html">Contact us</a></li>
+                  <li><a href="${basePath}index">Home</a></li>
+                  <li><a href="${basePath}services">Services</a></li>
+                  <li><a href="${basePath}portfolio">Our Work</a></li>
+                  <li><a href="${basePath}career">Careers</a></li>
+                  <li><a href="${basePath}about-us">About us</a></li>
+                  <li><a href="${basePath}blog">Blog</a></li>
+                  <li><a href="${basePath}contact-us">Contact us</a></li>
                 </ul>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-6 mb-40">
                 <h5 class="title">Legal</h5>
                 <ul class="footer-list style-none">
-                  <li><a href="${basePath}legal.html#terms">Terms & conditions</a></li>
-                  <li><a href="${basePath}legal.html#privacy">Privacy policy</a></li>
-                  <li><a href="${basePath}legal.html#cookies">Cookie policy</a></li>
+                  <li><a href="${basePath}legal#terms">Terms & conditions</a></li>
+                  <li><a href="${basePath}legal#privacy">Privacy policy</a></li>
+                  <li><a href="${basePath}legal#cookies">Cookie policy</a></li>
                 </ul>
               </div>
               <div class="col-lg-4 col-md-6 mb-40">
@@ -163,8 +163,8 @@ class Footer extends HTMLElement {
               <div class="row">
                 <div class="col-lg-4 order-lg-1 mb-15">
                   <ul class="d-flex justify-content-center justify-content-lg-start footer-nav style-none">
-                    <li><a href="${basePath}legal.html">Privacy & Terms.</a></li>
-                    <li><a href="${basePath}contact-us.html">Contact Us</a></li>
+                    <li><a href="${basePath}legal">Privacy & Terms.</a></li>
+                    <li><a href="${basePath}contact-us">Contact Us</a></li>
                   </ul>
                 </div>
                 <div class="col-lg-4 order-lg-3 mb-15">

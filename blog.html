@@ -156,11 +156,11 @@
 									<img src={blog.thumbnail} alt="" class="w-100" />
 								</div>
 								<div class="tag-container">
-									{blog.categories.map(category => <a href={`blog-details.html?title=${blog.title}`} class="tag">{category}</a>)}
+									{blog.categories.map(category => <a href={`blog-details?title=${blog.title}`} class="tag">{category}</a>)}
 								</div>
 
-								<a href={`blog-details.html?title=${blog.title}`} class="title">{blog.title}</a>
-								<a href={`blog-details.html?title=${blog.title}`} class="theme-btn-three">Continue reading <i
+								<a href={`blog-details?title=${blog.title}`} class="title">{blog.title}</a>
+								<a href={`blog-details?title=${blog.title}`} class="theme-btn-three">Continue reading <i
 									class="fas fa-angle-right"></i></a>
 							</article>
 						))
