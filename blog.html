@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords"
+		content="consulting, blockchain, web3, web2, digital, identity, self-sovereign identity, blockchain, software, development">
+	<meta name="description"
+		content="Pioneering the path for web2 to web3 transformation with secure and scalable blockchain technology">
+	<meta property="og:site_name" content="Nordivo">
+	<meta property="og:url" content="https://nordivo.com/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Nordivo, enabling a decentralized future">
+	<meta name='og:image' content='images/fav-icon/favicon.ico'>
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- For Window Tab Color -->
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#202020">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#202020">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#202020">
+	<title>Nordivo, enabling a decentralized future</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/favicon.ico">
+	<!-- Main style sheet -->
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+	<!-- responsive style sheet -->
+	<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all">
+
+	<!-- Add the Babel CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+	<!-- Add the React and ReactDOM CDNs -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+	<script type="text/javascript" src="js/email.js"></script>
+
+	<!-- Fix Internet Explorer ______________________________________-->
+	<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="vendor/html5shiv.js"></script>
+			<script src="vendor/respond.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<div class="main-page-wrapper">
+		<!-- ===================================================
+				Loading Transition
+			==================================================== -->
+		<section>
+			<div id="preloader">
+				<div id="ctn-preloader" class="ctn-preloader">
+					<div class="animation-preloader">
+						<div class="icon"><img src="images/logo/nordivo-loader.svg" alt="" class="m-auto d-block">
+							<span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- 
+				=============================================
+					Theme Main Menu
+				============================================== 
+				-->
+
+		<main-header></main-header>
+
+		<!-- 
+			=============================================
+				Inside Page Banner
+			============================================== 
+			-->
+		<div class="inside-hero-three">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-md-6">
+						<h2 class="page-title font-recoleta">Our <span>Inside</span><br /> News</h2>
+					</div>
+					<div class="col-xl-5 col-md-6 ms-auto">
+						<p>Stay informed with our expert blogs and articles for
+							the latest insights and knowledge. Join us to expand your understanding and stay ahead of
+							the curve.</p>
+					</div>
+				</div>
+			</div>
+		</div> <!-- /.inside-hero-three -->
+
+
+
+		<!--
+			=====================================================
+				Blog Section Five
+			=====================================================
+			-->
+
+		<div class="blog-section-five dark-bg mb-70">
+			<div class="container">
+				<div class="row">
+					<div class="col-xxl-9 col-lg-10 m-auto">
+						<div class="message">
+							<h4 style="color: #fff;">For more articles, <a style="color:#0154ff"
+									href="https://blog.nordivo.com" target="_blank">visit our blog</a></h4>
+						</div>
+						<br />
+						<div id="blog-list"></div>
+
+
+					</div>
+				</div>
+			</div>
+		</div> <!-- /.blog-section-five -->
+
+
+
+		<!-- 
+			=============================================
+				Footer
+			============================================== 
+			-->
+		<main-footer></main-footer>
+
+		<button class="scroll-top">
+			<i class="bi bi-arrow-up-short"></i>
+		</button>
+
+		<!-- React App-->
+		<script type="text/babel">
+			// Blog List Component
+
+			function BlogList() {
+				const [blogs, setBlogs] = React.useState([]);
+
+				React.useEffect(() => {
+					fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/nordivo')
+						.then((res) => res.json())
+						.then((data) => {
+							setBlogs(data.items)
+						})
+						.catch((err) => console.log(err))
+				}, [])
+
+				return (
+					<div>
+						{blogs && blogs.map(blog => (
+							<article key={blog.id} class="blog-meta-five">
+								<div class="img-meta position-relative">
+									<img src={blog.thumbnail} alt="" class="w-100" />
+								</div>
+								<div class="tag-container">
+									{blog.categories.map(category => <a href={`blog-details.html?title=${blog.title}`} class="tag">{category}</a>)}
+								</div>
+
+								<a href={`blog-details.html?title=${blog.title}`} class="title">{blog.title}</a>
+								<a href={`blog-details.html?title=${blog.title}`} class="theme-btn-three">Continue reading <i
+									class="fas fa-angle-right"></i></a>
+							</article>
+						))
+						}
+					</div >
+				);
+			}
+
+			// Render App
+			ReactDOM.render(<BlogList />, document.getElementById('blog-list'));
+		</script>
+		<!-- Optional JavaScript _____________________________  -->
+
+		<!-- jQuery first, then Bootstrap JS -->
+		<!-- jQuery -->
+		<script src="vendor/jquery.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- AOS js -->
+		<script src="vendor/aos-next/dist/aos.js"></script>
+		<!-- Slick Slider -->
+		<script src="vendor/slick/slick.min.js"></script>
+		<!-- js Counter -->
+		<script src="vendor/jquery.counterup.min.js"></script>
+		<script src="vendor/jquery.waypoints.min.js"></script>
+		<!-- Fancybox -->
+		<script src="vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+		<!-- MixIt Up -->
+		<script src="vendor/mixitup-3/mixitup.min.js"></script>
+		<!-- validator js -->
+		<script src="vendor/validator.js"></script>
+
+		<!-- Theme js -->
+		<script src="js/theme.js"></script>
+		<script src="js/header-and-footer.js"></script>
+	</div> <!-- /.main-page-wrapper -->
+</body>
+
+</html>

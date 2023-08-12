@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords"
+		content="Digital marketing agency, Digital marketing company, Digital marketing services, sass, software company">
+	<meta name="description" content="vCamp Creative Personal Service HTML Template designed for personal service.">
+	<meta property="og:site_name" content="vCamp">
+	<meta property="og:url" content="https://heloshape.com/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="vCamp-Creative Agency & Portfolio HTML5 Template">
+	<meta name='og:image' content='images/assets/ogg.png'>
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- For Window Tab Color -->
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#202020">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#202020">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#202020">
+	<title>Nordivo, enabling a decentralized future</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/favicon.ico">
+	<!-- Main style sheet -->
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+	<!-- responsive style sheet -->
+	<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all">
+
+	<!-- Add the Babel CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+	<!-- Add the React and ReactDOM CDNs -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
+
+
+	<!-- Fix Internet Explorer ______________________________________-->
+	<!--[if lt IE 9]>
+				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+				<script src="vendor/html5shiv.js"></script>
+				<script src="vendor/respond.js"></script>
+			<![endif]-->
+</head>
+
+<body>
+	<div class="main-page-wrapper">
+		<!-- ===================================================
+				Loading Transition
+			==================================================== -->
+		<section>
+			<div id="preloader">
+				<div id="ctn-preloader" class="ctn-preloader">
+					<div class="animation-preloader">
+						<div class="icon"><img src="images/logo/nordivo-loader.svg" alt="" class="m-auto d-block">
+							<span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- 
+				=============================================
+					Theme Main Menu
+				============================================== 
+				-->
+
+		<main-header></main-header>
+
+
+		<div id="root"></div>
+
+		<main-footer></main-footer>
+
+		<button class="scroll-top">
+			<i class="bi bi-arrow-up-short"></i>
+		</button>
+
+
+		<!-- React App-->
+		<script type="text/babel">
+
+			// Blog Details Component
+			function BlogDetails() {
+
+				const title = getTitleFromURLParams();
+				const [selectedBlog, setSelectedBlog] = React.useState({});
+
+				React.useEffect(() => {
+					fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/nordivo')
+						.then((res) => res.json())
+						.then((data) => {
+							const blog = data.items.find(function (item) {
+								return item.title === title;
+							})
+							console.log("blog", blog)
+							setSelectedBlog(blog)
+						})
+						.catch((err) => console.log(err))
+				}, [])
+
+				function getTitleFromURLParams() {
+					const searchParams = new URLSearchParams(window.location.search);
+					return searchParams.get('title');
+				}
+
+				function capitalizeAndReplaceHyphen(word) {
+					// Replace hyphens with spaces
+					const wordWithSpaces = word.replace(/-/g, ' ');
+
+					// Capitalize each word
+					const capitalizedWords = wordWithSpaces
+						.split(' ')
+						.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+						.join(' ');
+
+					return capitalizedWords;
+				}
+
+				function getFormattedDate(date) {
+					var date = new Date(date); // Current date and time
+
+					var formattedDate = date.toLocaleString('en-US', {
+						day: 'numeric',
+						month: 'long',
+
+						year: 'numeric',
+					});
+
+					return formattedDate;
+				}
+
+				function getBlogCategory() {
+					return selectedBlog.categories ? capitalizeAndReplaceHyphen(selectedBlog.categories.pop()) : 'Nordivo'
+				}
+
+				const headingStyle = {
+					color: '#fff',
+					marginTop: "70px",
+					marginBottom: "30px",
+				};
+
+				return selectedBlog && <div>
+					<div class="inside-hero-eight text-center">
+						<div class="container">
+							<p class="blog-pubish-date">{getBlogCategory()} . {getFormattedDate(selectedBlog.pubDate)} . By <a href="#">{selectedBlog.author}</a></p>
+							<div class="row">
+								<div class="col-xxl-8 col-xl-9 col-lg-8 m-auto">
+									<h2 class="blog-heading-two">{selectedBlog.title}</h2>
+								</div>
+							</div>
+							<nav class="blog-breadcrumb mt-70 lg-mt-30">
+								<ol class="breadcrumb justify-content-center">
+									<li class="breadcrumb-item"><a href="blogs.html">Blogs</a></li>
+									<li class="breadcrumb-item active" aria-current="page">{selectedBlog.title}</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+
+					<div class="blog-details-one dark-bg mb-70">
+						<div class="container">
+							<div class="row">
+								<div class="col-xl-10 m-auto">
+									<div class="blog-meta-wrapper pe-xxl-5 ps-xxl-5">
+										<article class="blog-details-content">
+											<div class="html-container" dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
+											<style>{`.html-container h3 { color: ${headingStyle.color}; margin-bottom: ${headingStyle.marginBottom};margin-top: ${headingStyle.marginTop}; }`}</style>
+										</article>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div >
+			}
+
+			// Render App
+			ReactDOM.render(<BlogDetails />, document.getElementById('root'));
+		</script>
+
+		<!-- Optional JavaScript _____________________________  -->
+
+		<!-- jQuery first, then Bootstrap JS -->
+		<!-- jQuery -->
+		<script src="vendor/jquery.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- AOS js -->
+		<script src="vendor/aos-next/dist/aos.js"></script>
+		<!-- Slick Slider -->
+		<script src="vendor/slick/slick.min.js"></script>
+		<!-- js Counter -->
+		<script src="vendor/jquery.counterup.min.js"></script>
+		<script src="vendor/jquery.waypoints.min.js"></script>
+		<!-- Fancybox -->
+		<script src="vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+		<!-- MixIt Up -->
+		<script src="vendor/mixitup-3/mixitup.min.js"></script>
+		<!-- validator js -->
+		<script src="vendor/validator.js"></script>
+
+		<!-- Theme js -->
+		<script src="js/theme.js"></script>
+		<script src="js/header-and-footer.js"></script>
+	</div> <!-- /.main-page-wrapper -->
+</body>
+
+</html>
