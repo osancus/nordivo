@@ -4,7 +4,7 @@ class Header extends HTMLElement {
         <header class="theme-main-menu sticky-menu theme-menu-one">
         <div class="inner-content">
             <div class="d-flex align-items-center justify-content-between">
-                <div class="logo"><a href="${basePath}index"><img src="${basePath}images/logo/logo-white.png" alt="" width="147"></a>
+                <div class="logo"><a href="/"><img src="${basePath}images/logo/logo-white.png" alt="" width="147"></a>
                 </div>
                 <nav class="navbar navbar-expand-lg">
                     <button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
@@ -15,11 +15,11 @@ class Header extends HTMLElement {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="d-block d-lg-none">
-                                <div class="logo"><a href="${basePath}index"><img src="${basePath}images/logo/logo-color.png" alt=""
+                                <div class="logo"><a href="/"><img src="${basePath}images/logo/logo-color.png" alt=""
                                             width="127"></a></div>
                             </li>
                             <li class="nav-item dropdown mega-dropdown">
-                                <a class="nav-link dropdown-toggle" href="${basePath}index">Home</a>
+                                <a class="nav-link dropdown-toggle" href="/">Home</a>
 
                             </li>
                             <li class="nav-item dropdown ">
@@ -55,7 +55,7 @@ class Header extends HTMLElement {
                         </ul>
                         <div class="offcanvas offcanvas-end sidebar-nav" tabindex="-1" id="offcanvasRight">
                         <div class="offcanvas-header">
-                          <div class="logo"><a href="${basePath}index"><img src="${basePath}images/logo/logo-color.png" alt="" width="127"></a>
+                          <div class="logo"><a href="/"><img src="${basePath}images/logo/logo-color.png" alt="" width="127"></a>
                           </div>
                           <button type="button" class="close-btn tran3s" data-bs-dismiss="offcanvas" aria-label="Close"><i
                               class="bi bi-x-lg"></i></button>
@@ -64,7 +64,7 @@ class Header extends HTMLElement {
                         <div class="sidebar-nav-item">
                           <ul class="style-none">
                   
-                            <li class="nav-item"><a href="${basePath}index">Home</a></li>
+                            <li class="nav-item"><a href="/">Home</a></li>
                             <li class="nav-item"><a href="${basePath}services">Services</a></li>
                             <li class="nav-item"><a href="${basePath}portfolio">Our Work</a></li>
                             <li class="nav-item"><a href="${basePath}career">Careers</a></li>
@@ -118,7 +118,7 @@ class Footer extends HTMLElement {
               <div class="col-lg-2 col-md-3 col-sm-6 mb-40">
                 <h5 class="title">Links</h5>
                 <ul class="footer-list style-none">
-                  <li><a href="${basePath}index">Home</a></li>
+                  <li><a href="/">Home</a></li>
                   <li><a href="${basePath}services">Services</a></li>
                   <li><a href="${basePath}portfolio">Our Work</a></li>
                   <li><a href="${basePath}career">Careers</a></li>
