@@ -15303,9 +15303,9 @@ body .theme-btn-eighteen:hover:before {
 
 
 /* our custom styles */
-.full-page {
+/*.full-page {
   height: 100vh;
-}
+}*/
 
 .blue-shadow {
   box-shadow: inset 0 0 2000px rgb(5 7 21);

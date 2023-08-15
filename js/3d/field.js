@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-      var SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
+      var SEPARATION = 100, AMOUNTX = 100, AMOUNTY = 50;
 
       var container;
       var camera, scene, renderer;
@@ -23,7 +23,7 @@
         container.className = "hero-threejs";
         hero.appendChild( container );
 
-        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+        camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 10000 );
         camera.position.z = 400;
 
         scene = new THREE.Scene();
@@ -61,7 +61,7 @@
 
         renderer = new THREE.CanvasRenderer({ alpha: true });
         renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize( window.innerWidth*1.5, window.innerHeight*1.5 );
         container.appendChild( renderer.domElement );
 
         document.addEventListener( 'mousemove', onDocumentMouseMove, false );
