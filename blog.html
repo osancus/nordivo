@@ -136,6 +136,18 @@
 		<script type="text/babel">
 			// Blog List Component
 
+			function extractImageUrls(text) {
+				const regex = /<img[^>]+src=["']([^"']+)["']/g;
+				const matches = [];
+				let match;
+
+				while ((match = regex.exec(text)) !== null) {
+					matches.push(match[1]);
+				}
+
+				return matches;
+			}
+
 			function BlogList() {
 				const [blogs, setBlogs] = React.useState([]);
 
@@ -143,6 +155,9 @@
 					fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/nordivo')
 						.then((res) => res.json())
 						.then((data) => {
+							for (let i = 0; i < data.items.length; i++) {
+								data.items[i].thumbnail = extractImageUrls(data.items[i].description)[0]
+							}
 							setBlogs(data.items)
 						})
 						.catch((err) => console.log(err))

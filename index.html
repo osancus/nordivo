@@ -480,6 +480,9 @@
 						.then((res) => res.json())
 						.then((data) => {
 							data.items.length = 3;
+							for (let i = 0; i < data.items.length; i++) {
+								data.items[i].thumbnail = extractImageUrls(data.items[i].description)[0]
+							}
 							setBlogs(data.items)
 						})
 						.catch((err) => console.log(err))
@@ -496,6 +499,18 @@
 					});
 
 					return formattedDate;
+				}
+
+				function extractImageUrls(text) {
+					const regex = /<img[^>]+src=["']([^"']+)["']/g;
+					const matches = [];
+					let match;
+
+					while ((match = regex.exec(text)) !== null) {
+						matches.push(match[1]);
+					}
+
+					return matches;
 				}
 
 				return (
